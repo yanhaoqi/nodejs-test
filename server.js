@@ -11,13 +11,13 @@ function start(route,handle){
         if(pathname != '/favicon.ico'){
             console.log('req url 请求路由',pathname);
             //把handle作为参数传入route
-            route(handle,pathname);
             response.setHeader('Content-type','text/html;charset = UTF-8');
+            var content = route(handle,pathname);
             // response.writeHead(200,{'Content-type':'text/plain'});
-            response.write('HELLO WORLD 闫浩奇');
+            response.write(content);
             response.end();
         }
     }).listen(8888);
     console.log('server start')
 };
-exports.start = start
+exports.start = start;
