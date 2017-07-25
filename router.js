@@ -2,10 +2,10 @@
  *
  * Created by yanhaoqi on 2017/7/22.
  */
-function route(handle,pathname,response,postData){
+function route(handle,pathname,response,request){
     console.log('route a request for a pathname=====', pathname);
     if(typeof handle[pathname] === 'function'){
-        return handle[pathname](response,postData);
+        return handle[pathname](response,request);
     }else{
         console.log('该路由没有对应的请求处理程序');
         //设置页面内容是html 编码格式是UTF-8
